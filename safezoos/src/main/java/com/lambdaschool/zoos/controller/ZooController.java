@@ -2,6 +2,7 @@ package com.lambdaschool.zoos.controller;
 
 import com.lambdaschool.zoos.model.Zoo;
 import com.lambdaschool.zoos.service.ZooService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,4 +25,14 @@ public class ZooController
     {
         return new ResponseEntity<>(zooService.findAll(), HttpStatus.OK);
     }
+
+    // GET: localhost/2019/zoos/zoos/{id}
+    @GetMapping(value = "/zoos/{id}",
+                produces = {"application/json"})
+    public ResponseEntity<?> findZooById(
+            @PathVariable Long id) {
+           Zoo z = zooService.findZooById(id);
+           return new ResponseEntity<>(z, HttpStatus.OK);
+    }
+
 }
