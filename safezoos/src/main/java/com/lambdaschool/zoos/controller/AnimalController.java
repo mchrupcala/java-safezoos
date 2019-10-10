@@ -33,4 +33,11 @@ public class AnimalController
         Animal a = animalService.findAnimalByType(type);
         return new ResponseEntity<>(a, HttpStatus.OK);
     }
+
+//    @GetMapping(value = "/count",
+//               produces = {"application/json"})
+//    public ResponseEntity<?> findAnimalByZoos() {
+//        //Write this method + a JDA query to return the list of zoos.
+//        return new ResponseEntity<>(animalService.findAnimalByZoos(), HttpStatus.OK);
+//    }
 }
