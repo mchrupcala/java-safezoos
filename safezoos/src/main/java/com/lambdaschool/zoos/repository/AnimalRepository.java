@@ -17,6 +17,4 @@ public interface AnimalRepository extends CrudRepository<Animal, Long>
   nativeQuery = true)
     List<AnimalCount> findAnimalsAndZoos();
 
-//^^not sure if this will work...I'm also using ZooAnimals table...can I pull in two? How do I handle a custom join query?
-    //next, I run this through Service, ServiceImpl, and my Controller.
 }
