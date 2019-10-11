@@ -10,7 +10,7 @@ public interface ZooService
 
     Zoo findZooById(long id);
 
-    Zoo findZooByName(String name);
+    Zoo findZooByName(String zooname);
 
     void delete(long id);
 

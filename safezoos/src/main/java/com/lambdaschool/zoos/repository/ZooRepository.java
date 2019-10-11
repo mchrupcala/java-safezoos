@@ -14,4 +14,8 @@ public interface ZooRepository extends CrudRepository<Zoo, Long>
 
     @Query(value = "SELECT COUNT(*) as count FROM zooanimals WHERE zooid = :zooid AND animalid = :animalid", nativeQuery = true)
     JustTheCount checkZooAnimalCombo(long zooid, long animalid);
+
+
+    @Query(value = "SELECT * from zoo WHERE zooname = :zooname", nativeQuery = true)
+    Zoo findZooByName(String zooname);
 }

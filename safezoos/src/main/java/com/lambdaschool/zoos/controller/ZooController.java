@@ -35,4 +35,13 @@ public class ZooController
            return new ResponseEntity<>(z, HttpStatus.OK);
     }
 
+    // GET: localhost/2019/zoos/{name}
+    @GetMapping(value= "/{name}",
+    produces = {"application/json"})
+    public ResponseEntity<?> findZooByName(
+            @PathVariable String name) {
+            Zoo z = zooService.findZooByName(name);
+            return new ResponseEntity<>(z, HttpStatus.OK);
+    }
+
 }
