@@ -30,8 +30,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
                 .antMatchers("/",
                         "/h2-console/**")
                 .permitAll()
-                .antMatchers("/users/**",
-                        "/useremails/**")
+                .antMatchers("/users/**","/useremails")
                 .authenticated()
                 // restrict application data...
                 // .antMatchers("/books", "/authors").hasAnyRole("ADMIN", "USER", "DATA")

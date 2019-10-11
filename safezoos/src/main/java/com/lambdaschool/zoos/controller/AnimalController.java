@@ -5,6 +5,7 @@ import com.lambdaschool.zoos.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class AnimalController
     @Autowired
     private AnimalService animalService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN') OR hasAuthority('ROLE_ANIMALDATA') OR hasAuthority('ROLE_MGR')")
     @GetMapping(value = "/animals",
                 produces = {"application/json"})
     public ResponseEntity<?> listAllAnimals()
